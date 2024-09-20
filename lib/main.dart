@@ -1,0 +1,46 @@
+// ignore_for_file: prefer_const_constructors
+
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
+import 'package:smart_farm/pages/home_page.dart';
+import 'package:smart_farm/pages/new_task.dart';
+import 'package:smart_farm/pages/sign_up.dart';
+import 'package:smart_farm/pages/task_manager.dart';
+import 'package:smart_farm/pages/weather_page.dart';
+
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    //options: FirebaseOptions(
+      //apiKey: "AIzaSyDo7qdf5y-vmSXSE6x-yLH_MP7WUrHDQDM", 
+      //appId: "1:601911088648:android:734743d76c086516f1a3bd", 
+      //messagingSenderId: "601911088648 ", 
+      //projectId: "farmmanagementsystem-f8234")
+  );
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  // This widget is the root of your application.
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      title: 'Flutter Demo',
+      theme: ThemeData(
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.greenAccent.shade700),
+        useMaterial3: true,
+      ),
+      routes: {
+        '/newpage': (context) => NewTaskPage(),
+        '/': (context) => TaskManagerPage(),
+        '/signup': (context) => SignUpPage(),
+        '/home': (context) => HomePage(),
+        '/weather': (context) => WeatherPage(),
+      },
+    );
+  }
+}
+
