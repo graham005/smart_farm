@@ -3,8 +3,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_farm/models/task_model.dart';
-import 'package:smart_farm/pages/new_task.dart';
-import 'package:smart_farm/pages/task_detail.dart';
+import 'package:smart_farm/pages/tasks/new_task.dart';
+import 'package:smart_farm/pages/tasks/task_detail.dart';
 
 class TaskManagerPage extends StatefulWidget {
   const TaskManagerPage({super.key});

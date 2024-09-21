@@ -1,12 +1,15 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:smart_farm/models/task_model.dart';
 import 'package:smart_farm/pages/home_page.dart';
-import 'package:smart_farm/pages/new_task.dart';
+import 'package:smart_farm/pages/tasks/new_task.dart';
 import 'package:smart_farm/pages/sign_up.dart';
-import 'package:smart_farm/pages/task_manager.dart';
+import 'package:smart_farm/pages/tasks/task_manager.dart';
 import 'package:smart_farm/pages/weather_page.dart';
+import 'package:smart_farm/services/notification_service.dart';
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,9 +20,23 @@ Future<void> main() async {
       //messagingSenderId: "601911088648 ", 
       //projectId: "farmmanagementsystem-f8234")
   );
+  await NotificationService().init();
+  await updateTaskStatuses();
   runApp(const MyApp());
 }
 
+Future<void> updateTaskStatuses() async {
+  final tasksRef = FirebaseFirestore.instance.collection('tasks');
+  QuerySnapshot snapshot = 
+    await tasksRef.where('status', isEqualTo: 'pending').get();
+
+  for (var doc in snapshot.docs){
+    Task task = Task.fromDocument(doc);
+    if (task.dateTime.isBefore(DateTime.now())){
+      await tasksRef.doc(task.id).update({'status' : 'completed'});
+    }
+  }
+}
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
