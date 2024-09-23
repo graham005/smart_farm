@@ -132,12 +132,20 @@ class _EditTaskPageState extends State<EditTaskPage> {
 
               //DateTime Picker 
               SizedBox(height: 20),
-              TextButton(
-                onPressed: _pickDateTime,    
-                child: Text(_dateTime == null?
-                  'Select Date & Time' 
-                  : _dateTime.toString(),
-                  style: TextStyle(fontSize: 20, ),)
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.black, width: 1),
+                  borderRadius: BorderRadius.circular(8),
+                  color: Colors.grey[300],
+                ),
+                margin: EdgeInsets.symmetric(vertical: 8, horizontal: 16),
+                child: TextButton(
+                  onPressed: _pickDateTime,    
+                  child: Text(_dateTime == null?
+                    'Select Date & Time' 
+                    : _dateTime.toString(),
+                    style: TextStyle(fontSize: 20, ),)
+                ),
               ),
 
               // Submit Button

@@ -22,9 +22,11 @@ class _WeatherPageState extends State<WeatherPage> {
 
     try{
       final weather = await _weatherService.getWeather(cityName);
-      setState(() {
-        _weather = weather;
-      });
+      if(mounted) {
+         setState(() {
+          _weather = weather;
+        });
+      }   
     }
     catch (e) {
       print(e);
@@ -65,29 +67,38 @@ class _WeatherPageState extends State<WeatherPage> {
       appBar: AppBar(
         title: Center(child: Text("Weather")),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-       
+       automaticallyImplyLeading: false,
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            // CityName
-            Text(_weather?.cityName ?? "loading city..", 
-            style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold, 
-            color: Colors.blue),),
-            
-            Lottie.asset(getWeatherAnimation(_weather?.mainCondition)),
-
-            // Temperature
-            Text('${_weather?.temparature.round()}℃', 
-            style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),),
-
-            // Weather condition
-            Text(_weather?.mainCondition ?? "", 
-            style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold, 
-            color: Colors.red),),
-
-          ],),
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/farm_background.jpg'), // Add your farm background image
+            fit: BoxFit.cover,
+          ),
+        ),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              // CityName
+              Text(_weather?.cityName ?? "loading city..", 
+              style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold, 
+              color: Colors.black),),
+              
+              Lottie.asset(getWeatherAnimation(_weather?.mainCondition)),
+        
+              // Temperature
+              Text('${_weather?.temparature.round()}℃', 
+              style: TextStyle(
+                fontSize: 25, fontWeight: FontWeight.bold,color: Colors.white),),
+        
+              // Weather condition
+              Text(_weather?.mainCondition ?? "", 
+              style: TextStyle(fontSize: 26, fontWeight: FontWeight.bold, 
+              color: Colors.white),),
+        
+            ],),
+        ),
       ),
     );
   }

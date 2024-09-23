@@ -96,7 +96,7 @@ class _LoginPageState extends State<LoginPage> {
     User? user =await _auth.signInWithEmailAndPassword(email, password);
     if(user != null ){
       print("User is successfully signed in");
-      Navigator.pushNamed(context, "/home");
+      Navigator.pushNamed(context, "/navmenu");
     }else{
       print("Some error happened");
     }

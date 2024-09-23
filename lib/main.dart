@@ -4,9 +4,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_farm/models/task_model.dart';
+import 'package:smart_farm/navigation_menu.dart';
 import 'package:smart_farm/pages/home_page.dart';
-import 'package:smart_farm/pages/tasks/new_task.dart';
+import 'package:smart_farm/pages/login.dart';
 import 'package:smart_farm/pages/sign_up.dart';
+import 'package:smart_farm/pages/tasks/new_task.dart';
 import 'package:smart_farm/pages/tasks/task_manager.dart';
 import 'package:smart_farm/pages/weather_page.dart';
 import 'package:smart_farm/services/notification_service.dart';
@@ -45,14 +47,16 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'smart farm',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.greenAccent.shade700),
+        colorScheme: ColorScheme.fromSeed(seedColor: Color(0xFF4CAF50)),// 0xFFA6E335
         useMaterial3: true,
       ),
       routes: {
+        '/': (context) => LoginPage(),
         '/newpage': (context) => NewTaskPage(),
-        '/': (context) => TaskManagerPage(),
+        '/navmenu': (context) => NavigationMenu(),
+        '/taskmanager': (context) => TaskManagerPage(),
         '/signup': (context) => SignUpPage(),
         '/home': (context) => HomePage(),
         '/weather': (context) => WeatherPage(),
@@ -60,4 +64,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
