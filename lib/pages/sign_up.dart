@@ -103,7 +103,7 @@ class _SignUpPageState extends State<SignUpPage> {
     User? user =await _auth.signUpWithEmailAndPassword(email, password);
     if(user != null ){
       print("User is successfully created");
-      Navigator.pushNamed(context, "/home");
+      Navigator.pushNamed(context, "/navmenu");
     }else{
       print("Some error happened");
     }
