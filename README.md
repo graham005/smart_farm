@@ -2,7 +2,7 @@
 
 Introducing our innovative agritech mobile app designed to empower farmers and streamline farm operations
 
-#Task Management and Notifications:
+# Task Management and Notifications:
 1.Organized Farm Operations
 
   Keep track of all your farm tasks, from planting to harvesting.
@@ -13,7 +13,7 @@ Introducing our innovative agritech mobile app designed to empower farmers and s
 
   are completed on time.
 
-#Real-Time Weather Updates:
+# Real-Time Weather Updates:
 
 1.Accurate Weather Forecasts
 
@@ -21,6 +21,6 @@ Introducing our innovative agritech mobile app designed to empower farmers and s
 
 3.Proactive Planning
 
-#Calculate Seed and Fertilizer Needs
+# Calculate Seed and Fertilizer Needs
 
 
