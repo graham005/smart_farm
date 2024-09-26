@@ -5,6 +5,7 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_farm/models/task_model.dart';
 import 'package:smart_farm/navigation_menu.dart';
+import 'package:smart_farm/pages/calculation_page.dart';
 import 'package:smart_farm/pages/home_page.dart';
 import 'package:smart_farm/pages/login.dart';
 import 'package:smart_farm/pages/sign_up.dart';
@@ -53,6 +54,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       routes: {
+        '/calculator': (context) => CalculationPage(),
         '/': (context) => LoginPage(),
         '/newpage': (context) => NewTaskPage(),
         '/navmenu': (context) => NavigationMenu(),
