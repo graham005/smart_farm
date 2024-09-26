@@ -60,8 +60,13 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text("HomePage",style: TextStyle(fontWeight: FontWeight.bold),),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text(
+          "HomePage",
+          style: TextStyle(
+            fontWeight: FontWeight.bold, color: Colors.white
+            ),
+          ),
+        backgroundColor: Color(0xFF4CAF50),
         actions: [
           IconButton(onPressed: (){
             FirebaseAuth.instance.signOut();
@@ -74,7 +79,7 @@ class _HomePageState extends State<HomePage> {
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/farm_background.jpg'),
+            image: AssetImage('assets/farm_background2.jpg'),
             fit: BoxFit.cover,
           ),
         ),
@@ -88,7 +93,7 @@ class _HomePageState extends State<HomePage> {
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: Colors.black,
+                color: Colors.white,
               ),
             ),
             SizedBox(height: 30),

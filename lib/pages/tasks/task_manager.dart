@@ -36,14 +36,17 @@ class _TaskManagerPageState extends State<TaskManagerPage> {
   Widget build(BuildContext context) {
     return  Scaffold(
       appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Center(child: Text('Task Manager')),  
+        backgroundColor: Color(0xFF4CAF50),
+        title: Center(child: Text(
+          'Task Manager',
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)
+        )),  
         automaticallyImplyLeading: false,  
         ),
         body: Container(
           decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/farm_background.jpg'), // Add your farm background image
+            image: AssetImage('assets/farm_background2.jpg'), // Add your farm background image
             fit: BoxFit.cover,
           ),
         ),

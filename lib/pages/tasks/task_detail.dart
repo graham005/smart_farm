@@ -53,8 +53,11 @@ class _TaskDetailPageState extends State<TaskDetailPage> {
     }
     return Scaffold(
       appBar: AppBar(
-        title : Text(task!.name),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title : Text(
+          task!.name,
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)
+        ),
+        backgroundColor: Color(0xFF4CAF50),
         actions: [
           if(task!.status == 'pending')
             IconButton(onPressed: _editTask, icon: Icon(Icons.edit)),

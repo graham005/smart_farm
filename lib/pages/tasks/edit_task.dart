@@ -92,8 +92,11 @@ class _EditTaskPageState extends State<EditTaskPage> {
     }
     return Scaffold(
             appBar: AppBar(
-        title: Text('Edit Task'),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Text(
+          'Edit Task',
+          style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)
+        ),
+        backgroundColor: Color(0xFF4CAF50),
       ),
       body: Padding(
         padding: EdgeInsets.all(16.0),

@@ -65,14 +65,19 @@ class _WeatherPageState extends State<WeatherPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text("Weather")),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: Center(
+          child: Text(
+            "Weather",
+            style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold)
+            ),
+          ),
+        backgroundColor: Color(0xFF4CAF50),
        automaticallyImplyLeading: false,
       ),
       body: Container(
         decoration: BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/farm_background.jpg'), // Add your farm background image
+            image: AssetImage('assets/farm_background2.jpg'), // Add your farm background image
             fit: BoxFit.cover,
           ),
         ),
@@ -83,7 +88,7 @@ class _WeatherPageState extends State<WeatherPage> {
               // CityName
               Text(_weather?.cityName ?? "loading city..", 
               style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold, 
-              color: Colors.black),),
+              color: Colors.white),),
               
               Lottie.asset(getWeatherAnimation(_weather?.mainCondition)),
         
