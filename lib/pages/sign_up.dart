@@ -35,64 +35,66 @@ class _SignUpPageState extends State<SignUpPage> {
         title: Text("SignUp"),
         backgroundColor: Color(0xFF4CAF50),
       ),
-      body: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              Text("SignUp",
-              style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold),),
-              SizedBox(
-                    height: 30,
-                  ),
-              FormContainerWidget(
-                controller: _usernameController,
-                hintText: "Username",
-                isPasswordField: false,
-              ),
-              SizedBox(height: 10,),
-              FormContainerWidget(
-                controller: _emailController,
-                hintText: "Email",
-                isPasswordField: false,
-              ),
-              SizedBox(height: 10,),
-              FormContainerWidget(
-                controller: _passwordController,
-                hintText: "Password",
-                isPasswordField: true,
-              ),
-              SizedBox(height: 30,),
-              GestureDetector(
-                onTap: _signUp,
-                child: Container(
-                  width: double.infinity,
-                  height: 45,
-                  decoration: BoxDecoration(
-                    color : Theme.of(context).colorScheme.inversePrimary,
-                    borderRadius: BorderRadius.circular(10)
-                  ),
-                  child: Center(child: Text("SignUp", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold) ,)),
+      body: SingleChildScrollView(
+        child: Center(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 15),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text("SignUp",
+                style: TextStyle(fontSize: 27, fontWeight: FontWeight.bold),),
+                SizedBox(
+                      height: 30,
+                    ),
+                FormContainerWidget(
+                  controller: _usernameController,
+                  hintText: "Username",
+                  isPasswordField: false,
                 ),
-              ),
-              SizedBox(height: 20,),
-              Row(mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Text("Already have an account?"),
-                  SizedBox(width: 5,),
-                  GestureDetector(
-                    onTap: (){
-                      Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => LoginPage()), (route) => false);
-                    },
-                    child: Text("Login", style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),),
-                  ), 
-                ]         
+                SizedBox(height: 10,),
+                FormContainerWidget(
+                  controller: _emailController,
+                  hintText: "Email",
+                  isPasswordField: false,
+                ),
+                SizedBox(height: 10,),
+                FormContainerWidget(
+                  controller: _passwordController,
+                  hintText: "Password",
+                  isPasswordField: true,
+                ),
+                SizedBox(height: 30,),
+                GestureDetector(
+                  onTap: _signUp,
+                  child: Container(
+                    width: double.infinity,
+                    height: 45,
+                    decoration: BoxDecoration(
+                      color : Theme.of(context).colorScheme.inversePrimary,
+                      borderRadius: BorderRadius.circular(10)
+                    ),
+                    child: Center(child: Text("SignUp", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold) ,)),
+                  ),
+                ),
+                SizedBox(height: 20,),
+                Row(mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text("Already have an account?"),
+                    SizedBox(width: 5,),
+                    GestureDetector(
+                      onTap: (){
+                        Navigator.pushAndRemoveUntil(context, MaterialPageRoute(builder: (context) => LoginPage()), (route) => false);
+                      },
+                      child: Text("Login", style: TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),),
+                    ), 
+                  ]         
+            ),
+              ]
           ),
-            ]
         ),
-      ),
-    )
+            ),
+      )
     );
   }
   void _signUp() async {

@@ -3,6 +3,7 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:smart_farm/models/task_model.dart';
 import 'package:smart_farm/pages/tasks/new_task.dart';
@@ -17,6 +18,7 @@ class TaskManagerPage extends StatefulWidget {
 
 class _TaskManagerPageState extends State<TaskManagerPage> {
   final tasksRef = FirebaseFirestore.instance.collection('tasks');
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   Timer? timer;
 
   @override
@@ -34,6 +36,7 @@ class _TaskManagerPageState extends State<TaskManagerPage> {
   }
   @override
   Widget build(BuildContext context) {
+    User? user = _auth.currentUser;
     return  Scaffold(
       appBar: AppBar(
         backgroundColor: Color(0xFF4CAF50),
@@ -51,7 +54,9 @@ class _TaskManagerPageState extends State<TaskManagerPage> {
           ),
         ),
           child: StreamBuilder<QuerySnapshot>(
-            stream: tasksRef.orderBy('dateTime').snapshots(), 
+            stream: tasksRef
+            .where('userId', isEqualTo: user?.uid)
+            .orderBy('dateTime').snapshots(), 
               builder: (context, snapshot) {
                 if(!snapshot.hasData) return CircularProgressIndicator();
                 List<Task> tasks = snapshot.data!.docs.map((doc){
