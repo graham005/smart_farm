@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:smart_farm/pages/calculation_page.dart';
 import 'package:smart_farm/pages/home_page.dart';
 import 'package:smart_farm/pages/tasks/task_manager.dart';
 import 'package:smart_farm/pages/weather_page.dart';
@@ -17,7 +18,7 @@ class _NavigationMenuState extends State<NavigationMenu> {
   static const List<Widget> _pages = <Widget>[
     HomePage(),
     TaskManagerPage(),
-    Center(child: Text('Calculator Page')),
+    CalculationPage(),
     WeatherPage(),
   ];
 
