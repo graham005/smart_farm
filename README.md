@@ -1,16 +1,7 @@
-# smart_farm
+# Smart_farm
 
-A new Flutter project.
+Introducing our innovative agritech mobile app designed to empower farmers and streamline farm operations![image](https://github.com/user-attachments/assets/bec5b279-0b42-4113-8943-ada8371a5ef2)
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Task Management and Notifications
+![image](https://github.com/user-attachments/assets/7bb87b86-7b9e-44e0-980a-db40386c34da)
